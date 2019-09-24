@@ -5,7 +5,7 @@ to spoof
 
 yum install php-pdo
 yum install php-pdo_mysql
-for tnxl security stresser
+
 
 Make Your Own Booter API
  
