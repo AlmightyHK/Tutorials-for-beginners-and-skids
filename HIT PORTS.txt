@@ -1,0 +1,13 @@
+
+
+'Common open UDP ports, always do a full scan with nmap to get the exact ports open 1-65535 TCP & UDP'
+
+
+HOTSPOTS: 54019 (T-MOBILE)
+
+VPNs/Servers: Do a nmap port scan
+
+HOME Connections: 80
+
+SITES/PROXIES: 443, 8080, 3128, 81, 80
+

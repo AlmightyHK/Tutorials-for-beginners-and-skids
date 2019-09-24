@@ -1,0 +1,21 @@
+Part One:
+Open up CMD and type this code in:
+----------------------------------------------------------------------------
+cd %APPDATA%
+----------------------------------------------------------------------------
+then hit enter and get ready to type another line:
+
+----------------------------------------------------------------------------
+dir /A-D /B
+----------------------------------------------------------------------------
+Then hit enter again.
+
+If you get these fuckers then your bleeping likely to be infected:
+Quote:yourpcname.dat
+SQlite3.dll
+svchost.exe (Possibly)
+ArbiAuth.ini
+GHSettings.ini
+wklnhst.dat
+----------------------------------------------------------------------------
+You can additionally go to the 'Appdata' folder and search everywhere for a 'WinDir' folder. Some noobs do this and the RAT server is usually there.

@@ -1,0 +1,31 @@
+SO YOU DONT KNOW HOW TO HOST A STRESSER SOURCE ON A VPS?
+
+YOU NEED UBUNTU 14.04
+
+HERE ARE THE COMMANDS ...
+
+=========================================================
+
+1. apt-get update -y; apt-get install nano apache2 mysql-server phpmyadmin -y
+
+2. nano /etc/apache2/apache2.conf
+
+SCROLL ALL THE WAY DOWN LIKE THE VERY BOTTOM
+
+AND DO STEP 3
+
+3. Include /etc/phpmyadmin/apache.conf
+
+ctrl + x THEN SAVE THEN DO 
+
+service apache2 restart
+
+4. GO TO IP/phpmyadmin
+
+5. ADD DATABAS AND IMPORT MYSQL FILE
+
+6. DONE NOW GO TO YOUR WEBSITE
+
+=========================================================
+
+DONE.

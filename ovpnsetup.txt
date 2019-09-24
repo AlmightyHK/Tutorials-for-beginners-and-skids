@@ -1,0 +1,14 @@
+Im using a OVH Game Server...You can use NFO too but OVH has stronger protection.
+Centos 6 64 bit works best.
+
+https://www.ovh.com/ca/en/dedicated-s...
+
+Installation
+
+Run the script and follow the assistant:
+
+wget https://git.io/vpn -O openvpn-install.sh && bash openvpn-install.sh
+
+Once it ends, you can run it again to add more users, remove some of them or even completely uninstall OpenVPN.
+
+https://client.pritunl.com/

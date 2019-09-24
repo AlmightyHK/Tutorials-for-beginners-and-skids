@@ -1,0 +1,79 @@
+﻿#SSL/HTTPS TUTORIAL
+
+<--- REDIRECT TO HTTPS --->
+For this method, make sure mod_rewrite is enabled, otherwise enable it like this on Ubuntu/Debian systems.
+
+$ sudo a2enmod rewrite	[Ubuntu/Debian]
+
+ 
+For CentOS/RHEL users, ensure that your have the following line in httpd.conf (mod_rewrite support – enabled by default).
+
+LoadModule rewrite_module modules/mod_rewrite.so
+Now you just need to edit or create .htaccess file in your domain root directory and add these lines to redirect http to https.
+
+Add this to an .htaccess file on the root of the webserver.
+RewriteEngine On 
+RewriteCond %{HTTPS}  !=on 
+RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
+Now, when a visitor types http://www.yourdomain.com the server will automatically redirect HTTP to HTTPS https://www.yourdomain.com.
+<--- REDIRECT TO HTTPS --->
+
+
+<--- SSL SETUP --->
+ADD THIS TO THE httpd.conf
+<VirtualHost *:80>
+    ServerAdmin root@localhost
+    DocumentRoot /var/www/html
+    ServerName chi-rp.us
+    ServerAlias chi-rp.us
+RewriteEngine on
+RewriteCond %{SERVER_NAME} =chi-rp.us
+RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [L,NE,R=permanent]
+</VirtualHost>
+
+1. If not already installed, httpd daemon can be installed by issuing the below command:
+yum install httpd
+2. In order for Let’s encrypt software to work with Apache, assure that the SSL/TLS module is installed by issuing the command below:
+
+# yum -y install mod_ssl
+
+ 
+3. Finally, start Apache server with the following command:
+
+# systemctl start httpd.service          [On RHEL/CentOS 7]
+# service httpd start                    [On RHEL/CentOS 6]
+Step 2: Install Let’s Encrypt SSL Certificate
+4. The simplest method of installing Let’s Encrypt client is by cloning github repository in your filesystem. To install git on your system you must enable Epel repositories with the following command.
+
+# yum install epel-release
+5. Once Epel repos are added in your system, go ahead and install git client by running the command below:
+
+# yum install git
+6. Now , once you have installed all the required dependencies in order to deal with Let’s Encrypt, go to  /usr/local/ directory and start pulling the Let’s Encrypt client form its official github repository with the following command:
+
+# cd /usr/local/
+# git clone https://github.com/letsencrypt/letsencrypt
+Step 3: Obtain a Free Let’s Encrypt SSL Certificate for Apache
+7. The process of obtaining a free Let’s Encrypt Certificate for Apache is automated for CentOS/RHEL thanks to the apache plugin.
+
+Let’s run Let’s Encrypt script command in order to obtain a SSL Certificate. Go to Let’s Encrypt installation directory from /usr/local/letsencrypt and run the letsencrypt-auto command by providing  --apache option and the -d flag for every subdomain you need a certificate.
+
+# cd /usr/local/letsencrypt
+# ./letsencrypt-auto --apache -d your_domain.tld 
+Create Lets Encrypt SSL Certificate for Apache
+Create Lets Encrypt SSL Certificate for Apache
+
+8. Supply the email address that will be used by Let’s Encrypt to recover your lost key or for urgent notices and press Enter to continue.
+
+Add Email Address for Lets Encrypt
+Add Email Address for Lets Encrypt
+
+9. Agree the terms of the license by hitting Enter key.
+
+Agree Lets Encrypt License
+Agree Lets Encrypt License
+
+10. On CentOS/RHEL, by default, Apache server does not use the concept of separating directories for enabled hosts from available (inactive) hosts as Debian based distribution do.
+
+
+<--- SSL SETUP --->

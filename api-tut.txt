@@ -1,0 +1,6 @@
+yum update -y
+yum install gcc php-devel php-pear libssh2 libssh2-devel make
+yum install httpd -y
+yum install php -y
+ pecl install -f ssh2
+nano /etc/php.d/ssh2.ini (Write  extension=ssh2.so)

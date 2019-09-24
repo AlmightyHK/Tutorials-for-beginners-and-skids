@@ -1,0 +1,27 @@
+0.Prologue 
+Typically, to install a BETA you have to be invited or have a friend with the BETA invitation that lets you use their account in order to install it.
+If you can't do the above, and cannot wait for the Official release, you can use my method to install the BETA firmware.
+BOTH UPDATE FILES ARE FROM OFFICIAL SONY SERVERS
+I. Preparation:
+Requirements: 2 USB Sticks (mainly for simplicity reasons), you can also do this with a single USB stick.
+1) Download the CURRENT firmware and copy it into the folder PS4\UPDATE on USB1.
+http://dus01.ps4.update.playstation.net/update/ps4/image/2018_1015/sys_9ef581a6ef5a171862544628d0449701/PS4UPDATE.PUP
+2) Download the BETA firmware and copy it into the folder PS4\UPDATE on USB2.
+http://dus01.ps4.update.playstation.net/update/ps4/exp_beta/image/2018_1016/sys_a6a94b8feadd13121212c8aef5f5c7d8/PS4UPDATE.PUP
+II. Installation:
+1) Boot your PS4 into Safe Mode (Hold the power button on the PS4 for 7-8 seconds till you hear a second beep) 2) Select the <3. Update System Software> option 3) Select the <1. Update from USB Storage Device> option 4) Insert USB1, select <OK> then <next> and let it copy over the update
+NOTE: When you reach the Update prompt (The PS4 will restart and start the update)...
+5) Eject USB1, select <Update> and after rebooting (but before the PS4 gets to the update screen), power off your PS4
+This is the tricky part, you basically have two methods (Method A is easier and more reliable):
+Method A) Just remove the power cord when you hear that it's starting again (before you see the updater screen)
+
+Method B) You can hold the power button (for quite some time) and select restart a few seconds before the PS4 would normally turn off
+NOTE: Since the update process didnt start yet, there should be no harm done to your system, but the next time you normally boot it up, it will automatically go into the Update Mode, so to get around this...
+6) Boot your PS4 into Safe Mode (again) 7) Select the <3. Update System Software> option 8) Select the <1. Update from USB Storage Device> option 9) Insert USB2, select <OK> then <next> and let it copy over the update
+NOTE: Now you will get an error message (CE-35948-9), as the BETA PUP can't normally be installed using Safe Mode...
+10) Eject USB2, select <OK> then select the <1. Restart PS4> option
+NOTE: It will now boot into the Update Mode and install the BETA firmware!!!
+Credits:
+SanettoChan for providing the BETA PUP URL
+TehPoisonOne for the Installation Method
+/u/SocraticBliss for cleaning up the Tutorial

@@ -1,0 +1,30 @@
+
+INSTALLING:
+$ sudo apt-get install git gcc make libpcap-dev
+$ git clone https://github.com/robertdavidgraham/masscan
+$ cd masscan
+$ make
+
+make -j
+
+
+SCANNING:
+
+# x--ihk36 Scan
+rate =  100000.00
+output-format = grepable
+output-status = all
+output-filename = huawei.txt # OUTPUT-FILE
+ports = 37215
+range = 181.78.32.0-181.110.246.127 # START-END RANGE HERE
+./masscan -c scan.conf 
+
+
+
+
+#GETTING JUST THE IPS ONLY IN .txt
+
+awk '/^Host:/ { print $2 }' bios.txt > ip.list.txt
+
+
+

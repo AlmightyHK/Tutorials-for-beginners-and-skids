@@ -1,0 +1,2 @@
+iptables -A OUTPUT -p icmp --icmp-type echo-reply -j DROP  (Disable)
+iptables -D OUTPUT -p icmp --icmp-type echo-reply -j DROP (Enable)
