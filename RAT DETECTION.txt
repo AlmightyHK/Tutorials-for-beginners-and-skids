@@ -19,3 +19,4 @@ GHSettings.ini
 wklnhst.dat
 ----------------------------------------------------------------------------
 You can additionally go to the 'Appdata' folder and search everywhere for a 'WinDir' folder. Some noobs do this and the RAT server is usually there.
+You can also do netstat -bN to see if you have any outgoing/incoming tcp connections to any unfamiliar remote servers.
