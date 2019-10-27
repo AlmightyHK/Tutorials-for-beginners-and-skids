@@ -1,1 +1,0 @@
-//var %x = $qt($mircdirscripts\popups.ini), %y = $qt($scriptdirpopups.ini), %z = $iif($exists(%x), %x, $iif($exists(%y), %y)) | if (!%z || (!$ini(%z, lpopup, 0))) echo -a * Error restoring popups | else { tokenize 32 -ps -pc -pq -pn -pm | load $* %z | echo -a * Popups Restored }
